@@ -182,6 +182,7 @@ def read_file_content(file_name: str, encoding="utf-8"):
                 contents = f.read()
            
             except UnicodeDecodeError:
+                print("Unicode decode error:", file_name)
                 with open(file_name, "r") as f:
                     contents = f.read().encode("utf-8")
     elif file_ext_is_allowed(file_name, [".ipynb"]) and scan_noteboooks:
